@@ -8,6 +8,10 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(${PROJECT_NAME} INTERFACE)
+add_library(DirectXMath INTERFACE)
 
-target_include_directories(${PROJECT_NAME} INTERFACE Inc/ Extensions/)
+target_include_directories(
+    DirectXMath INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/Inc/ ${CMAKE_CURRENT_SOURCE_DIR}/Extensions/ ${CMAKE_CURRENT_SOURCE_DIR}/MatrixStack/ ${CMAKE_CURRENT_SOURCE_DIR}/XDSP/
+)
+
+add_library(razer::DxMath ALIAS DirectXMath)
